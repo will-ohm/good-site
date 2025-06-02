@@ -1,0 +1,47 @@
+/* === Basic styling for your website === */
+
+/* === Reset & Body Styling === */
+/* Applies to the entire page: sets font, spacing, and background */
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: #fefefe;
+  color: #333;
+}
+
+/* === Headings === */
+/* Center the main headings */
+h1, h2 {
+  text-align: center;
+}
+
+/* === Figures and Images === */
+/* Center images inside <figure> tags */
+figure {
+  text-align: center; /* <-- centers the image inside the figure */
+}
+
+/* Add space below captions and center them */
+figcaption {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+/* Make images responsive (won’t overflow the page) */
+img {
+  max-width: 100%; /* optional: keeps image from overflowing */
+  height: auto;
+}
+
+.feature-img {
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* === Lists === */
+/* Add spacing below lists to separate them from following content */
+ul {
+  margin-bottom: 1.5em;
+}
