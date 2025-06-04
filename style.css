@@ -1,19 +1,11 @@
-/* === Basic styling for your website === */
 
-/* === Reset & Body Styling === */
-/* Applies to the entire page: sets font, spacing, and background */
+/* === Reset & Global Styles === */
+/* Clears browser default spacing and sets global box model + font + layout base */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-/* === Layout Styling === */
-/* Controls spacing and structure between blocks */
-
-section {
-  margin-bottom: 2em;
 }
 
 body {
@@ -26,17 +18,31 @@ body {
   padding: 20px;
 }
 
-:is(p, ul, .entry, .info-box, figure) {
-  margin-bottom: 1em;
+/* === Page Layout === */
+/* Controls overall page structure: sections, spacing, containers */
+
+section {
+  margin-bottom: 2em;
 }
 
-/* === Headings === */
-/* Center the main headings */
+:is(h1, h2, h3, p, ul, li, .entry, .info-box, .site-title, figure) {
+  margin-bottom: 1em;
+} /* margin-bottom rules */
+
+.entry, .info-box {
+  background-color: #6495ED;
+  padding: 1em;
+  border: 2px solid black;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* === 3. Typography === */
+/* Heading and text styling: fonts, sizes, alignment, line spacing */
+
 h1, h2, h3 {
   font-family: 'Merriweather', serif; /* Heading font */
   font-weight: 700;
   color: #1E3A5F; 
-  margin-bottom: 1em;
 }
 
 h1 {
@@ -49,48 +55,64 @@ h2 {
   margin-top: 1em;
 }
 
-.info-box {
-  background-color: #6495ED;
-  padding: 1em;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.site-title {
+  text-align: center;
+  font-size: 1.5em;
 }
 
-.entry {
-  background-color: #6495ED;
-  padding: 1em;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+/* === 4. Figures & Images === */
+/* Image styling, figure layout, captions, and responsiveness */
 
-li {
-  margin-bottom: 0.5em;
-}
-
-/* === Figures and Images === */
-/* Center images inside <figure> tags */
 figure {
   text-align: center; /* <-- centers the image inside the figure */
 }
 
-/* Add space below captions and center them */
 figcaption {
   font-size: 0.8em;
   color: #000000; 
   text-align: center;
 }
 
-/* Make images responsive (won’t overflow the page) */
 img {
-  max-width: 100%; /* optional: keeps image from overflowing */
+  max-width: 100%;
   height: auto;
-}
+} /* Make images responsive (won’t overflow the page) */
 
 .feature-img {
   width: 300px;
   max-width: 100%;
   height: auto;
 }
+
+/* === 5. Interactive & Navigation === */
+/* Link and button styling, hover/focus effects for interactivity */
+
+a {
+  color: #130eb2;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FF6600;
+  text-decoration: underline;
+}
+
+.info-box:hover {
+  background-color: #76ADEF;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.entry:hover {
+  background-color: #76ADEF;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+/* button, button:hover { ... } */
+
+/* === 6. Footer === */
+/* Footer alignment, spacing, and layout */
 
 footer {
   text-align: center;
