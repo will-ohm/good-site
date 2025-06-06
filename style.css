@@ -8,12 +8,47 @@
   box-sizing: border-box;
 }
 
+/* === CSS Variables === */
+/* Define reusable color and font values */
+
+:root {
+  /* === Color Variables === */
+  --main-bg: #87CEEB;
+  --accent-bg: #6495ED;
+  --hover-bg: #76ADEF;
+  --text-color: #333333;
+  --link-color: #130eb2;
+  --link-hover: #FF6600;
+  --heading-color: #1E3A5F;
+  --caption-color: #000000;
+
+  /* === Font Variables === */
+  --font-body: 'Open Sans', Arial, Helvetica, sans-serif;
+  --font-heading: 'Merriweather', serif;
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-bg: #121212;
+    --accent-bg: #1f2d44;
+    --hover-bg: #2a3e5e;
+    --text-color: #e0e0e0;
+    --link-color: #9ecfff;
+    --link-hover: #ffa94d;
+    --heading-color: #c9dfff;
+    --caption-color: #aaaaaa;
+  }
+}
+
+/* === Body Styling === */
+
 body {
   max-width: 800px;
   margin: 0 auto;
-  background-color: #87CEEB;
-  color: #333333;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif; /* Body font */
+  background-color: var(--main-bg);
+  color: var(--text-color);
+  font-family: var(--font-body); /* Body font */
   line-height: 1.6;
   padding: 20px;
 }
@@ -25,12 +60,17 @@ section {
   margin-bottom: 2em;
 }
 
+header nav, footer nav {
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
 :is(h1, h2, h3, p, ul, li, .entry, .info-box, .site-title, figure) {
   margin-bottom: 1em;
-} /* margin-bottom rules */
+}
 
 .entry, .info-box {
-  background-color: #6495ED;
+  background-color: var(--accent-bg);
   padding: 1em;
   border: 2px solid black;
   transition: background-color 0.3s, box-shadow 0.3s;
@@ -40,9 +80,9 @@ section {
 /* Heading and text styling: fonts, sizes, alignment, line spacing */
 
 h1, h2, h3 {
-  font-family: 'Merriweather', serif; /* Heading font */
+  font-family: var(--font-heading);
   font-weight: 700;
-  color: #1E3A5F; 
+  color: var(--heading-color); 
 }
 
 h1 {
@@ -55,9 +95,10 @@ h2 {
   margin-top: 1em;
 }
 
-.site-title {
-  text-align: center;
-  font-size: 1.5em;
+/* Apply style only to diary entries */
+.entry h2 {
+  font-style: italic;
+  text-transform: uppercase;
 }
 
 /* === 4. Figures & Images === */
@@ -69,8 +110,9 @@ figure {
 
 figcaption {
   font-size: 0.8em;
-  color: #000000; 
+  color: var(--caption-color); 
   text-align: center;
+  margin-top: 1em;
 }
 
 img {
@@ -78,43 +120,54 @@ img {
   height: auto;
 } /* Make images responsive (won’t overflow the page) */
 
-.feature-img {
+img.feature-img {
   width: 300px;
-  max-width: 100%;
-  height: auto;
 }
 
 /* === 5. Interactive & Navigation === */
 /* Link and button styling, hover/focus effects for interactivity */
 
 a {
-  color: #130eb2;
+  color: var(--link-color);
   text-decoration: none;
 }
 
 a:hover {
-  color: #FF6600;
+  color: var(--link-hover);
   text-decoration: underline;
 }
 
-.info-box:hover {
-  background-color: #76ADEF;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  cursor: pointer;
+a:focus,
+a:active {
+  outline: 2px solid #ffa94d;
+  background-color: var(--hover-bg);
 }
 
-.entry:hover {
-  background-color: #76ADEF;
+.entry:hover, .info-box:hover {
+  background-color: var(--hover-bg);
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  cursor: pointer;
 }
 
 /* button, button:hover { ... } */
+
+/* Footer-specific link styling */
+footer a {
+  color: #aaa;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+footer a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
 
 /* === 6. Footer === */
 /* Footer alignment, spacing, and layout */
 
 footer {
+  background-color: var(--accent-bg); 
   text-align: center;
   padding: 1em;
+  border-top: 2px solid var(--text-color);
 }
